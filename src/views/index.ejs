@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Aulão de NodeJs</title>
+    <style>
+        body {
+            background: linear-gradient(220deg, #222e5a 0%, #ff5900 100%);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #2B2B2B;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(34, 46, 90, 0.15);
+            padding: 40px;
+            color: #222e5a;
+            transition: box-shadow 0.3s;
+        }
+        .container:hover {
+            box-shadow: 0 8px 32px rgba(34, 46, 90, 0.25);
+        }
+        .container h1, .container h2 {
+            text-shadow: 0 2px 8px rgba(34, 46, 90, 0.12);
+        }
+        .container h1 {
+            color: #ffffff;
+            margin-bottom: 8px;
+            opacity: 90%;
+        }
+        .container h2 {
+            color: #ffffff;
+            margin-bottom: 16px;
+            font-size: 1.2em;
+            opacity: 90%;
+        }
+        .container ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 24px;
+        }
+        .container li {
+            background: #0d0d0d;
+            margin-bottom: 8px;
+            padding: 20px 16px;
+            border-radius: 4px;
+            color: #ffffff;
+            border: 1px solid rgba(34, 46, 90, 0.08);
+            opacity: 70%;
+            border-radius: 10px;
+        }
+
+    </style>
+    <!-- VLibras Plugin -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1><%= title %></h1>
+            <h2>Lista de Usuarios</h2>
+            <ul>
+                <% if (users && users.length) { %>
+                    <% users.forEach(user => { %>
+                        <li>
+                            <strong>Email:</strong> <%= user.email %><br>
+                            <strong>First Name:</strong> <%= user.firstName %><br>
+                            <strong>Last Name:</strong> <%= user.lastName %><br>
+                        </li>
+                    <% }) %>
+                <% } else { %>
+                    <li>No users found.</li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
